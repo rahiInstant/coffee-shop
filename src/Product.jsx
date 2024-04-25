@@ -12,10 +12,12 @@ const Product = () => {
         <h1 className="text-[#331A15] text-[55px] font-Rancho mt-2 text-center">
           Our Popular Products
         </h1>
-        <div className="bg-[#E3B577] border-[#331A15] px-5 py-2 border mt-4 flex gap-3 items-center rounded-md w-fit">
-          <h1 className="text-white font-Rancho text-2xl">Add Coffee</h1>
-          <img className="w-5 h-4" src="/public/Vector.png" alt="" />
-        </div>
+        <Link to="/add">
+          <div className="bg-[#E3B577] border-[#331A15] px-5 py-2 border mt-4 flex gap-3 items-center rounded-md w-fit">
+            <h1 className="text-white font-Rancho text-2xl">Add Coffee</h1>
+            <img className="w-5 h-4" src="/public/Vector.png" alt="" />
+          </div>
+        </Link>
       </div>
 
       {/* card */}
@@ -51,11 +53,9 @@ const Product = () => {
                   <IoPencilSharp />
                 </div>
               </Link>
-              <Link to="/add">
-                <div className="p-2.5 rounded-md bg-[#EA4744]">
-                  <ImBin2 />
-                </div>
-              </Link>
+              <div className="p-2.5 rounded-md bg-[#EA4744]">
+                <ImBin2 />
+              </div>
             </div>
           </div>
           {/* <div className="bg-[#F5F4F1] p-8 rounded-xl flex flex-row md:flex-col xl:flex-row gap-8 items-center">

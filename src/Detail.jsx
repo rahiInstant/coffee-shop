@@ -3,54 +3,55 @@ import { Link } from "react-router-dom";
 
 const Detail = () => {
   return (
-    <div className="px-20 ">
-      <Link to="/">
-        <div className="text-2xl flex items-center text-[#331A15] mt-10 gap-4">
-          <IoMdArrowBack />
-          <h1 className="font-Rancho ">Back to home</h1>
-        </div>
+    <div className="px-8 lg:px-20 ">
+      <Link
+        to="/"
+        className="text-2xl flex items-center text-[#331A15] mt-10 gap-4 w-fit"
+      >
+        <IoMdArrowBack />
+        <h1 className="font-Rancho ">Back to home</h1>
       </Link>
-      <div className="py-16 px-24 bg-[#F4F3F0] mt-10 mb-16 flex gap-5 items-center">
+      <div className="py-5 lg:py-16 px-7 lg:px-24 bg-[#F4F3F0] mt-10 mb-16 flex flex-col lg:flex-row gap-5 items-center">
         <div className="flex flex-col items-center w-full">
           <h1 className="font-Rancho text-[50px] text-[#331A15]">Niceties</h1>
-          <img  src="/public/images/1.png" alt="" />
+          <img src="/public/images/1.png" alt="" />
         </div>
         <div className="">
           <div className="text-[#5C5B5B] font-normal font-railway space-y-1">
             <h2>
               <span className="text-lg text-[#1B1A1A] font-semibold">
                 Name:
-              </span>
+              </span>{" "}
               Americano Coffee
             </h2>
             <h2>
               <span className="text-lg text-[#1B1A1A] font-semibold">
                 Chef:
-              </span>
+              </span>{" "}
               Mr. Matin Paul
             </h2>
             <h2>
               <span className="text-lg text-[#1B1A1A] font-semibold">
                 Supplier:
-              </span>
+              </span>{" "}
               Cappu Authorizer
             </h2>
             <h2>
               <span className="text-lg text-[#1B1A1A] font-semibold">
                 Taste:
-              </span>
+              </span>{" "}
               Sweet and hot
             </h2>
             <h2>
               <span className="text-lg text-[#1B1A1A] font-semibold">
                 Category:
-              </span>
+              </span>{" "}
               Americano
             </h2>
             <h2>
               <span className="text-lg text-[#1B1A1A] font-semibold">
                 Details:
-              </span>
+              </span>{" "}
               Espresso with hot water
             </h2>
           </div>

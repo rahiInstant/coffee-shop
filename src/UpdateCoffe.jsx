@@ -1,10 +1,127 @@
+import { IoMdArrowBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const UpdateCoffe = () => {
-    return (
+  return (
+    <div className="px-8 lg:px-20 ">
+      <Link
+        to="/"
+        className="text-2xl flex items-center text-[#331A15] mt-10 gap-4 w-fit"
+      >
+        <IoMdArrowBack />
+        <h1 className="font-Rancho ">Back to home</h1>
+      </Link>
+      <div className="py-5 lg:py-16 px-7 lg:px-24 bg-[#F4F3F0] mt-10 mb-16  gap-5 items-center">
         <div>
-            
+          <h1 className="font-Rancho text-[45px] text-[#374151] text-center">
+            Update Existing Coffee Details
+          </h1>
+          <p className="font-railway text-lg mt-8 text-center text-[#374151]">
+            It is a long established fact that a reader will be distraceted by
+            the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a more-or-less normal
+            distribution of letters, as opposed to using Content here.
+          </p>
         </div>
-    );
+        <div className="text-[#1B1A1ACC]   mt-8">
+          <form className="space-y-6">
+            <div className="flex gap-6 items-center ">
+              <div className="w-full">
+                <label className="block  font-semibold text-xl" htmlFor="food">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="food name"
+                  name="food"
+                  id="food"
+                  className="mt-4 p-3 rounded-md outline-none bg-white w-full "
+                />
+              </div>
+              <div className="w-full">
+                <label className="block font-semibold" htmlFor="chef">
+                  Chef
+                </label>
+                <input
+                  type="text"
+                  placeholder="chef name"
+                  name="chef"
+                  id="chef"
+                  className="mt-4 p-3 rounded-md outline-none bg-white w-full "
+                />
+              </div>
+            </div>
+            <div className="flex gap-6 items-center ">
+              <div className="w-full">
+                <label className="block  font-semibold" htmlFor="supplier">
+                  Supplier
+                </label>
+                <input
+                  type="text"
+                  placeholder="supplier name"
+                  name="supplier"
+                  id="supplier"
+                  className="mt-4 p-3 rounded-md outline-none bg-white w-full "
+                />
+              </div>
+              <div className="w-full">
+                <label className="block font-semibold" htmlFor="taste">
+                  Taste
+                </label>
+                <input
+                  type="text"
+                  placeholder="taste quality"
+                  name="taste"
+                  id="taste"
+                  className="mt-4 p-3 rounded-md outline-none bg-white w-full "
+                />
+              </div>
+            </div>
+            <div className="flex gap-6 items-center ">
+              <div className="w-full">
+                <label className="block  font-semibold" htmlFor="category">
+                  Category
+                </label>
+                <input
+                  type="text"
+                  placeholder="category name"
+                  name="category"
+                  id="category"
+                  className="mt-4 p-3 rounded-md outline-none bg-white w-full "
+                />
+              </div>
+              <div className="w-full">
+                <label className="block font-semibold" htmlFor="details">
+                  Details
+                </label>
+                <input
+                  type="text"
+                  placeholder="details information about product"
+                  name="details"
+                  id="details"
+                  className="mt-4 p-3 rounded-md outline-none bg-white w-full "
+                />
+              </div>
+            </div>
+            <input
+              type="url"
+              name="photo"
+              id="photo"
+              placeholder="place photo url of product"
+              className="mt-4 p-3 rounded-md outline-none bg-white w-full"
+            />
+            <button
+              type="submit"
+              className="text-[#331A15] font-Rancho text-2xl bg-[#D2B48C] border-2 border-[#331A] p-3 rounded-md w-full"
+            >
+              Update Coffee Details
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default UpdateCoffe;
+// flex flex-col lg:flex-row
