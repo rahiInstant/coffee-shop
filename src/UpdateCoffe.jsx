@@ -55,7 +55,7 @@ const UpdateCoffe = () => {
         </div>
         <div className="text-[#1B1A1ACC]   mt-8">
           <form className="space-y-6" onSubmit={handleUpdateProduct}>
-            <div className="flex gap-6 items-center ">
+            <div className="flex gap-6 items-center flex-col sm:flex-row">
               <div className="w-full">
                 <label className="block  font-semibold text-xl" htmlFor="food">
                   Name
@@ -81,7 +81,7 @@ const UpdateCoffe = () => {
                 />
               </div>
             </div>
-            <div className="flex gap-6 items-center ">
+            <div className="flex gap-6 items-center flex-col sm:flex-row">
               <div className="w-full">
                 <label
                   className="block  font-semibold text-xl"
@@ -110,7 +110,7 @@ const UpdateCoffe = () => {
                 />
               </div>
             </div>
-            <div className="flex gap-6 items-center ">
+            <div className="flex gap-6 items-center flex-col sm:flex-row">
               <div className="w-full">
                 <label
                   className="block text-xl  font-semibold"
@@ -142,13 +142,19 @@ const UpdateCoffe = () => {
                 />
               </div>
             </div>
-            <input
-              type="url"
-              name="photo"
-              id="photo"
-              defaultValue={data.photo}
-              className="mt-4 p-3 rounded-md outline-none bg-white w-full"
-            />
+            <div>
+              <label className="block text-xl font-semibold" htmlFor="details">
+                photo URL
+              </label>
+              <input
+                type="url"
+                name="photo"
+                id="photo"
+                defaultValue={data.photo}
+                className="mt-4 p-3 rounded-md outline-none bg-white w-full"
+              />
+            </div>
+
             <button
               type="submit"
               className="text-[#331A15] font-Rancho text-2xl bg-[#D2B48C] border-2 border-[#331A] p-3 rounded-md w-full"

@@ -3,15 +3,16 @@ import Banner from "./Banner";
 import Feature from "./Feature";
 import Product from "./Product";
 import ShowCase from "./ShowCase";
+import { useState } from "react";
 
 const Home = () => {
-  const data = useLoaderData();
+  const [data, setData] = useState(useLoaderData());
   // console.log(data);
   return (
     <div>
       <Banner></Banner>
       <Feature></Feature>
-      <Product data={data}></Product>
+      <Product data={data} setData={setData}></Product>
       <ShowCase></ShowCase>
     </div>
   );
