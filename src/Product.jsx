@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Product = ({ data }) => {
-  console.log(data);
+
+
+  
   return (
     <div className="py-20 ">
       {/* section header */}
@@ -32,11 +34,7 @@ const Product = ({ data }) => {
                 className="bg-[#F5F4F1] p-8 rounded-xl flex flex-row md:flex-col xl:flex-row gap-8 items-center"
               >
                 <div>
-                  <img
-                    className="w-32 h-44"
-                    src={item.photo}
-                    alt=""
-                  />
+                  <img className="w-32 h-44" src={item.photo} alt="" />
                 </div>
                 <div className="text-[#1B1A1AB2] text-lg">
                   <h1>
@@ -53,12 +51,12 @@ const Product = ({ data }) => {
                   </h1>
                 </div>
                 <div className="text-white flex flex-col md:flex-row xl:flex-col gap-4 ">
-                  <Link to="/coffe/2">
+                  <Link to={`/coffee/${item._id}`}>
                     <div className="p-2.5 rounded-md bg-[#D2B48C]">
                       <IoMdEye />
                     </div>
                   </Link>
-                  <Link to="/update">
+                  <Link to={`/update/${item._id}`}>
                     <div className="p-2.5 rounded-md bg-[#3C393B]">
                       <IoPencilSharp />
                     </div>

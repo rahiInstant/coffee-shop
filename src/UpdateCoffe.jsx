@@ -1,9 +1,36 @@
 import { IoMdArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const UpdateCoffe = () => {
+  const data = useLoaderData();
   function handleUpdateProduct(e) {
     e.preventDefault();
+    const form = e.target;
+    const foodName = form.food.value;
+    const chefName = form.chef.value;
+    const supplier = form.supplier.value;
+    const price = form.price.value;
+    const category = form.category.value;
+    const details = form.details.value;
+    const photo = form.photo.value;
+    const coffeeInfo = {
+      foodName,
+      chefName,
+      supplier,
+      price,
+      category,
+      details,
+      photo,
+    };
+    fetch(`http://localhost:5000/add/${data._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(coffeeInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   }
   return (
     <div className="px-8 lg:px-20 ">
@@ -35,7 +62,7 @@ const UpdateCoffe = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="food name"
+                  defaultValue={data.foodName}
                   name="food"
                   id="food"
                   className="mt-4 p-3 rounded-md outline-none bg-white w-full "
@@ -47,7 +74,7 @@ const UpdateCoffe = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="chef name"
+                  defaultValue={data.chefName}
                   name="chef"
                   id="chef"
                   className="mt-4 p-3 rounded-md outline-none bg-white w-full "
@@ -64,21 +91,21 @@ const UpdateCoffe = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="supplier name"
+                  defaultValue={data.supplier}
                   name="supplier"
                   id="supplier"
                   className="mt-4 p-3 rounded-md outline-none bg-white w-full "
                 />
               </div>
               <div className="w-full">
-                <label className="block font-semibold text-xl" htmlFor="taste">
-                  Taste
+                <label className="block font-semibold text-xl" htmlFor="price">
+                  Price
                 </label>
                 <input
                   type="text"
-                  placeholder="taste quality"
-                  name="taste"
-                  id="taste"
+                  defaultValue={data.price}
+                  name="price"
+                  id="price"
                   className="mt-4 p-3 rounded-md outline-none bg-white w-full "
                 />
               </div>
@@ -93,7 +120,7 @@ const UpdateCoffe = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="category name"
+                  defaultValue={data.category}
                   name="category"
                   id="category"
                   className="mt-4 p-3 rounded-md outline-none bg-white w-full "
@@ -108,7 +135,7 @@ const UpdateCoffe = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="details information about product"
+                  defaultValue={data.details}
                   name="details"
                   id="details"
                   className="mt-4 p-3 rounded-md outline-none bg-white w-full "
@@ -119,7 +146,7 @@ const UpdateCoffe = () => {
               type="url"
               name="photo"
               id="photo"
-              placeholder="place photo url of product"
+              defaultValue={data.photo}
               className="mt-4 p-3 rounded-md outline-none bg-white w-full"
             />
             <button
