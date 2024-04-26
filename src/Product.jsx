@@ -2,8 +2,10 @@ import { IoMdEye } from "react-icons/io";
 import { IoPencilSharp } from "react-icons/io5";
 import { ImBin2 } from "react-icons/im";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const Product = () => {
+const Product = ({ data }) => {
+  console.log(data);
   return (
     <div className="py-20 ">
       {/* section header */}
@@ -23,8 +25,54 @@ const Product = () => {
       {/* card */}
       <div className="flex justify-center">
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 w-fit gap-5 justify-center mx-5 sm:mx-0">
+          {data.map((item, id) => {
+            return (
+              <div
+                key={id}
+                className="bg-[#F5F4F1] p-8 rounded-xl flex flex-row md:flex-col xl:flex-row gap-8 items-center"
+              >
+                <div>
+                  <img
+                    className="w-32 h-44"
+                    src={item.photo}
+                    alt=""
+                  />
+                </div>
+                <div className="text-[#1B1A1AB2] text-lg">
+                  <h1>
+                    <span className="text-[#1B1A1A] font-semibold">Name:</span>
+                    {item.foodName}
+                  </h1>
+                  <h1>
+                    <span className="text-[#1B1A1A] font-semibold">Chef:</span>{" "}
+                    {item.chefName}
+                  </h1>
+                  <h1>
+                    <span className="text-[#1B1A1A] font-semibold">Price:</span>{" "}
+                    {item.price}
+                  </h1>
+                </div>
+                <div className="text-white flex flex-col md:flex-row xl:flex-col gap-4 ">
+                  <Link to="/coffe/2">
+                    <div className="p-2.5 rounded-md bg-[#D2B48C]">
+                      <IoMdEye />
+                    </div>
+                  </Link>
+                  <Link to="/update">
+                    <div className="p-2.5 rounded-md bg-[#3C393B]">
+                      <IoPencilSharp />
+                    </div>
+                  </Link>
+                  <div className="p-2.5 rounded-md bg-[#EA4744]">
+                    <ImBin2 />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+
           {/* card 01 */}
-          <div className="bg-[#F5F4F1] p-8 rounded-xl flex flex-row md:flex-col xl:flex-row gap-8 items-center">
+          {/* <div className="bg-[#F5F4F1] p-8 rounded-xl flex flex-row md:flex-col xl:flex-row gap-8 items-center">
             <div>
               <img className="w-32 h-44" src="/public/images/1.png" alt="" />
             </div>
@@ -57,101 +105,15 @@ const Product = () => {
                 <ImBin2 />
               </div>
             </div>
-          </div>
-          {/* <div className="bg-[#F5F4F1] p-8 rounded-xl flex flex-row md:flex-col xl:flex-row gap-8 items-center">
-            <div>
-              <img className="w-32 h-44" src="/public/images/1.png" alt="" />
-            </div>
-            <div className="text-[#1B1A1AB2] text-lg">
-              <h1>
-                <span className="text-[#1B1A1A] font-semibold">Name:</span>
-                Americano Coffee
-              </h1>
-              <h1>
-                <span className="text-[#1B1A1A] font-semibold">Chef:</span> Mr.
-                Matin Paul
-              </h1>
-              <h1>
-                <span className="text-[#1B1A1A] font-semibold">Price:</span> 890
-                Taka
-              </h1>
-            </div>
-            <div className="text-white flex flex-col md:flex-row xl:flex-col gap-4 ">
-              <div className="p-2.5 rounded-md bg-[#D2B48C]">
-                <IoMdEye />
-              </div>
-              <div className="p-2.5 rounded-md bg-[#3C393B]">
-                <IoPencilSharp />
-              </div>
-              <div className="p-2.5 rounded-md bg-[#EA4744]">
-                <ImBin2 />
-              </div>
-            </div>
-          </div>
-          <div className="bg-[#F5F4F1] p-8 rounded-xl flex flex-row md:flex-col xl:flex-row gap-8 items-center">
-            <div>
-              <img className="w-32 h-44" src="/public/images/1.png" alt="" />
-            </div>
-            <div className="text-[#1B1A1AB2] text-lg">
-              <h1>
-                <span className="text-[#1B1A1A] font-semibold">Name:</span>
-                Americano Coffee
-              </h1>
-              <h1>
-                <span className="text-[#1B1A1A] font-semibold">Chef:</span> Mr.
-                Matin Paul
-              </h1>
-              <h1>
-                <span className="text-[#1B1A1A] font-semibold">Price:</span> 890
-                Taka
-              </h1>
-            </div>
-            <div className="text-white flex flex-col md:flex-row xl:flex-col gap-4 ">
-              <div className="p-2.5 rounded-md bg-[#D2B48C]">
-                <IoMdEye />
-              </div>
-              <div className="p-2.5 rounded-md bg-[#3C393B]">
-                <IoPencilSharp />
-              </div>
-              <div className="p-2.5 rounded-md bg-[#EA4744]">
-                <ImBin2 />
-              </div>
-            </div>
-          </div>
-          <div className="bg-[#F5F4F1] p-8 rounded-xl flex flex-row md:flex-col xl:flex-row gap-8 items-center">
-            <div>
-              <img className="w-32 h-44" src="/public/images/1.png" alt="" />
-            </div>
-            <div className="text-[#1B1A1AB2] text-lg">
-              <h1>
-                <span className="text-[#1B1A1A] font-semibold">Name:</span>
-                Americano Coffee
-              </h1>
-              <h1>
-                <span className="text-[#1B1A1A] font-semibold">Chef:</span> Mr.
-                Matin Paul
-              </h1>
-              <h1>
-                <span className="text-[#1B1A1A] font-semibold">Price:</span> 890
-                Taka
-              </h1>
-            </div>
-            <div className="text-white flex flex-col md:flex-row xl:flex-col gap-4 ">
-              <div className="p-2.5 rounded-md bg-[#D2B48C]">
-                <IoMdEye />
-              </div>
-              <div className="p-2.5 rounded-md bg-[#3C393B]">
-                <IoPencilSharp />
-              </div>
-              <div className="p-2.5 rounded-md bg-[#EA4744]">
-                <ImBin2 />
-              </div>
-            </div>
           </div> */}
         </div>
       </div>
     </div>
   );
+};
+
+Product.propTypes = {
+  data: PropTypes.array.isRequired,
 };
 
 export default Product;

@@ -2,6 +2,9 @@ import { IoMdArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const UpdateCoffe = () => {
+  function handleUpdateProduct(e) {
+    e.preventDefault();
+  }
   return (
     <div className="px-8 lg:px-20 ">
       <Link
@@ -24,7 +27,7 @@ const UpdateCoffe = () => {
           </p>
         </div>
         <div className="text-[#1B1A1ACC]   mt-8">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleUpdateProduct}>
             <div className="flex gap-6 items-center ">
               <div className="w-full">
                 <label className="block  font-semibold text-xl" htmlFor="food">
@@ -39,7 +42,7 @@ const UpdateCoffe = () => {
                 />
               </div>
               <div className="w-full">
-                <label className="block font-semibold" htmlFor="chef">
+                <label className="block font-semibold text-xl" htmlFor="chef">
                   Chef
                 </label>
                 <input
@@ -53,7 +56,10 @@ const UpdateCoffe = () => {
             </div>
             <div className="flex gap-6 items-center ">
               <div className="w-full">
-                <label className="block  font-semibold" htmlFor="supplier">
+                <label
+                  className="block  font-semibold text-xl"
+                  htmlFor="supplier"
+                >
                   Supplier
                 </label>
                 <input
@@ -65,7 +71,7 @@ const UpdateCoffe = () => {
                 />
               </div>
               <div className="w-full">
-                <label className="block font-semibold" htmlFor="taste">
+                <label className="block font-semibold text-xl" htmlFor="taste">
                   Taste
                 </label>
                 <input
@@ -79,7 +85,10 @@ const UpdateCoffe = () => {
             </div>
             <div className="flex gap-6 items-center ">
               <div className="w-full">
-                <label className="block  font-semibold" htmlFor="category">
+                <label
+                  className="block text-xl  font-semibold"
+                  htmlFor="category"
+                >
                   Category
                 </label>
                 <input
@@ -91,7 +100,10 @@ const UpdateCoffe = () => {
                 />
               </div>
               <div className="w-full">
-                <label className="block font-semibold" htmlFor="details">
+                <label
+                  className="block text-xl font-semibold"
+                  htmlFor="details"
+                >
                   Details
                 </label>
                 <input

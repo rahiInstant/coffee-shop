@@ -1,7 +1,7 @@
 import { IoMdArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-const Detail = () => {
+const Detail = ({data}) => {
   return (
     <div className="px-8 lg:px-20 ">
       <Link
@@ -66,5 +66,10 @@ const Detail = () => {
     </div>
   );
 };
+
+Product.propTypes = {
+  data: PropTypes.array.isRequired,
+};
+
 
 export default Detail;
