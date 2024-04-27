@@ -7,16 +7,18 @@ import AddCoffe from "./AddCoffe.jsx";
 import UpdateCoffe from "./UpdateCoffe.jsx";
 import Detail from "./Detail.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import ErrorPage from "./ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/add"),
+        loader: () => fetch("https://coffe-shop-backend.vercel.app/add"),
       },
       {
         path: "/add",
@@ -25,12 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <UpdateCoffe></UpdateCoffe>,
-        loader: ({ params }) => fetch(`http://localhost:5000/add/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://coffe-shop-backend.vercel.app/add/${params.id}`),
       },
       {
         path: "/coffee/:id",
         element: <Detail></Detail>,
-        loader: ({ params }) => fetch(`http://localhost:5000/add/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://coffe-shop-backend.vercel.app/add/${params.id}`),
       },
     ],
   },

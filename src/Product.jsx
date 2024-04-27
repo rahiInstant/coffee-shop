@@ -3,23 +3,37 @@ import { IoPencilSharp } from "react-icons/io5";
 import { ImBin2 } from "react-icons/im";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import swal from "sweetalert";
 
 const Product = ({ data, setData }) => {
   function handleDelete(id) {
-    fetch(`http://localhost:5000/add/${id}`, {
-      method: "DELETE",
+    swal({
+      text: "Are you want to delete this product?",
+      button: {
+        text: "Delete",
+        closeModal: false,
+      },
+      icon: "warning",
+      dangerMode: true,
     })
+      .then(() => {
+        return fetch(`https://coffe-shop-backend.vercel.app/add/${id}`, {
+          method: "DELETE",
+        });
+      })
       .then((res) => res.json())
       .then((id) => {
-        // console.log(id);
-        // console.log(data);
-        // console.log("another", id._id);
-        // data.forEach((item) => {
-        //   console.log(item._id);
-        // });
         const Actual = data.filter((item) => item._id !== id._id);
         setData(Actual);
-      });
+        swal("Product Deleted", "Product deleted successfully.", "success");
+      })
+      .catch(() =>
+        swal(
+          "Couldn't delete!",
+          "Product cannot delete due to unexpected error. Please check your internet connection",
+          "error"
+        )
+      );
   }
 
   return (
@@ -31,26 +45,28 @@ const Product = ({ data, setData }) => {
           Our Popular Products
         </h1>
         <Link to="/add">
-          <div className="bg-[#E3B577] border-[#331A15] px-5 py-2 border mt-4 flex gap-3 items-center rounded-md w-fit">
+          <div className="bg-[#E3B577] border-[#331A15] px-5 py-2 border mt-4 z-40 flex gap-3 items-center rounded-md w-fit">
             <h1 className="text-white font-Rancho text-2xl">Add Coffee</h1>
-            <img className="w-5 h-4" src="/public/Vector.png" alt="" />
+            <img className="w-5 h-4" src="/Vector.png" alt="" />
           </div>
         </Link>
       </div>
-      <div className="absolute top-44 lg:top-24 left-0 ">
-        <img src="/public/images/more/4.png" alt="" />
+
+      <div className="absolute top-44 lg:top-24 left-0 hidden lg:block">
+        <img src="/images/more/4.png" alt="" />
       </div>
       <div className="absolute bottom-0 right-0 ">
-        <img src="/public/images/more/5.png" alt="" />
+        <img src="/images/more/5.png" alt="" />
       </div>
+
       {/* card */}
       <div className="flex justify-center ">
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 w-fit gap-5 justify-center mx-5 sm:mx-0">
+        <div className="mt-12 grid grid-cols-1 w-full  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2  gap-5 justify-center mx-5 md:mx-10 xl:mx-16 ">
           {data.map((item, id) => {
             return (
               <div
                 key={id}
-                className="bg-[#F5F4F1] z-10 p-8 rounded-xl flex flex-row md:flex-col xl:flex-row gap-8 items-center"
+                className="bg-[#F5F4F1] w-full z-10 p-8 rounded-xl flex flex-col xl:flex-row gap-8 items-center"
               >
                 <div>
                   <img className="w-32 h-44" src={item.photo} alt="" />
@@ -69,14 +85,14 @@ const Product = ({ data, setData }) => {
                     {item.price}
                   </h1>
                 </div>
-                <div className="text-white flex flex-col md:flex-row xl:flex-col gap-4 ">
+                <div className="text-white flex flex-row xl:flex-col gap-4 ">
                   <Link to={`/coffee/${item._id}`}>
-                    <div className="p-2.5 rounded-md bg-[#D2B48C]">
+                    <div className="p-2.5 rounded-md bg-[#D2B48C] cursor-pointer">
                       <IoMdEye />
                     </div>
                   </Link>
                   <Link to={`/update/${item._id}`}>
-                    <div className="p-2.5 rounded-md bg-[#3C393B]">
+                    <div className="p-2.5 rounded-md bg-[#3C393B] cursor-pointer">
                       <IoPencilSharp />
                     </div>
                   </Link>
@@ -84,7 +100,7 @@ const Product = ({ data, setData }) => {
                     onClick={() => {
                       handleDelete(item._id);
                     }}
-                    className="p-2.5 rounded-md bg-[#EA4744]"
+                    className="p-2.5 rounded-md bg-[#EA4744] cursor-pointer"
                   >
                     <ImBin2 />
                   </div>

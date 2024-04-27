@@ -1,6 +1,6 @@
 import { IoMdArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
-
+import swal from "sweetalert";
 const AddCoffe = () => {
   function handleAddProduct(e) {
     e.preventDefault();
@@ -21,7 +21,7 @@ const AddCoffe = () => {
       details,
       photo,
     };
-    fetch("http://localhost:5000/add", {
+    fetch("https://coffe-shop-backend.vercel.app/add", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -155,6 +155,13 @@ const AddCoffe = () => {
               />
             </div>
             <button
+              onClick={() =>
+                swal({
+                  title: "Coffee Added",
+                  text: "Product is successfully added to the database. Thank you.",
+                  icon: "success",
+                })
+              }
               type="submit"
               className="text-[#331A15] font-Rancho text-2xl bg-[#D2B48C] border-2 border-[#331A] p-3 rounded-md w-full"
             >

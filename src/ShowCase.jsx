@@ -15,14 +15,14 @@ const ShowCase = () => {
 
       <div className="flex justify-center">
       <div className="mt-10 mx-10 sm:mx-24 md:mx-16 lg:mx-36 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        <img className="" src="/public/images/cups/Rectangle 9.png" alt="" />
-        <img className="" src="/public/images/cups/Rectangle 10.png" alt="" />
-        <img className="" src="/public/images/cups/Rectangle 11.png" alt="" />
-        <img className="" src="/public/images/cups/Rectangle 12.png" alt="" />
-        <img className="" src="/public/images/cups/Rectangle 13.png" alt="" />
-        <img className="" src="/public/images/cups/Rectangle 14.png" alt="" />
-        <img className="" src="/public/images/cups/Rectangle 15.png" alt="" />
-        <img className="" src="/public/images/cups/Rectangle 16.png" alt="" />
+        <img className="" src="/images/cups/Rectangle 9.png" alt="" />
+        <img className="" src="/images/cups/Rectangle 10.png" alt="" />
+        <img className="" src="/images/cups/Rectangle 11.png" alt="" />
+        <img className="" src="/images/cups/Rectangle 12.png" alt="" />
+        <img className="" src="/images/cups/Rectangle 13.png" alt="" />
+        <img className="" src="/images/cups/Rectangle 14.png" alt="" />
+        <img className="" src="/images/cups/Rectangle 15.png" alt="" />
+        <img className="" src="/images/cups/Rectangle 16.png" alt="" />
         
       </div>
       </div>

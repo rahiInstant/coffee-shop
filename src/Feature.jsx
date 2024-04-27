@@ -3,7 +3,7 @@ const Feature = () => {
     <div className="bg-[#ECEAE3] py-14 px-24  ">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-9">
         <div className="">
-          <img src="/public/images/icons/1.png" alt="" />
+          <img src="/images/icons/1.png" alt="" />
           <h1 className="font-Rancho text-[35px] text-[#331A15] mt-4">
             Awesome Aroma
           </h1>
@@ -12,7 +12,7 @@ const Feature = () => {
           </p>
         </div>
         <div className="">
-          <img src="/public/images/icons/2.png" alt="" />
+          <img src="/images/icons/2.png" alt="" />
           <h1 className="font-Rancho text-[35px] text-[#331A15] mt-4">
             High Quality
           </h1>
@@ -21,7 +21,7 @@ const Feature = () => {
           </p>
         </div>
         <div className="">
-          <img src="/public/images/icons/3.png" alt="" />
+          <img src="/images/icons/3.png" alt="" />
           <h1 className="font-Rancho text-[35px] text-[#331A15] mt-4">
             Pure Grades
           </h1>
@@ -30,7 +30,7 @@ const Feature = () => {
           </p>
         </div>
         <div className="">
-          <img src="/public/images/icons/4.png" alt="" />
+          <img src="/images/icons/4.png" alt="" />
           <h1 className="font-Rancho text-[35px] text-[#331A15] mt-4">
             Proper Roasting
           </h1>

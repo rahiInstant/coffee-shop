@@ -16,7 +16,7 @@ const Footer = () => {
         >
           <div className="md:w-[60%]">
             <img
-              src="/public/images/more/logo1.png"
+              src="/images/more/logo1.png"
               className="h-[90px] w-[75px]"
               alt=""
             />

@@ -1,5 +1,6 @@
 import { IoMdArrowBack } from "react-icons/io";
 import { Link, useLoaderData } from "react-router-dom";
+import swal from "sweetalert";
 
 const UpdateCoffe = () => {
   const data = useLoaderData();
@@ -22,7 +23,7 @@ const UpdateCoffe = () => {
       details,
       photo,
     };
-    fetch(`http://localhost:5000/add/${data._id}`, {
+    fetch(`https://coffe-shop-backend.vercel.app/add/${data._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -30,7 +31,7 @@ const UpdateCoffe = () => {
       body: JSON.stringify(coffeeInfo),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => "");
   }
   return (
     <div className="px-8 lg:px-20 ">
@@ -156,6 +157,13 @@ const UpdateCoffe = () => {
             </div>
 
             <button
+              onClick={() =>
+                swal({
+                  title: "Coffee updated.",
+                  text: "Product is successfully updated to the database. Thank you.",
+                  icon: "success",
+                })
+              }
               type="submit"
               className="text-[#331A15] font-Rancho text-2xl bg-[#D2B48C] border-2 border-[#331A] p-3 rounded-md w-full"
             >

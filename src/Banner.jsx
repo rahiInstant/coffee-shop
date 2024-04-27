@@ -2,7 +2,7 @@ import "./Banner.css";
 
 const Banner = () => {
   return (
-    <div id="banner" className="flex flex-col  lg:flex-row px-10 lg:px-24 gap-5">
+    <div id="banner" className="flex flex-col  lg:flex-row px-10 lg:px-24 gap-5 text-white">
       <div className="lg:w-[45%]"></div>
       <div className="lg:w-[55%] flex flex-col justify-center">
         <h1 className="font-Rancho text-[45px]">
