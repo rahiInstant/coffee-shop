@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 
 const Detail = () => {
   const data = useLoaderData();
-  console.log(data);
   return (
     <div className="px-8 lg:px-20 ">
       <Link
@@ -19,7 +18,7 @@ const Detail = () => {
           <h1 className="font-Rancho text-[50px] text-[#331A15]">
             {data.category}
           </h1>
-          <img src="/public/images/1.png" alt="" />
+          <img src={data.photo} alt="" />
         </div>
         <div className="">
           <div className="text-[#5C5B5B] font-normal font-railway space-y-1">

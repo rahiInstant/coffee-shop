@@ -6,16 +6,17 @@ import ShowCase from "./ShowCase";
 import { useState } from "react";
 
 const Home = () => {
-  const [data, setData] = useState(useLoaderData());
+  // const [data, setData] = useState(useLoaderData());
   // console.log(data);
   return (
     <div>
       <Banner></Banner>
       <Feature></Feature>
-      <Product data={data} setData={setData}></Product>
+      <Product ></Product>
       <ShowCase></ShowCase>
     </div>
   );
 };
 
 export default Home;
+// data={data} setData={setData}

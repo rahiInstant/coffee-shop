@@ -2,10 +2,10 @@ import "./Banner.css";
 
 const Banner = () => {
   return (
-    <div id="banner" className="flex flex-col  lg:flex-row px-10 lg:px-24 gap-5 text-white">
-      <div className="lg:w-[45%]"></div>
-      <div className="lg:w-[55%] flex flex-col justify-center">
-        <h1 className="font-Rancho text-[45px]">
+    <div id="banner" className="flex flex-col  sm:flex-row px-10 lg:px-24 gap-5 text-slate-300">
+      <div className="lg:w-[45%] sm:w-[20%]"></div>
+      <div className="lg:w-[55%] sm:w-[80%] flex flex-col justify-center">
+        <h1 className="font-Rancho text-[35px] sm:text-[45px]">
           Would you like a Cup of Delicious Coffee?
         </h1>
         <h1 className="mt-4">

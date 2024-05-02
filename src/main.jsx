@@ -8,6 +8,7 @@ import UpdateCoffe from "./UpdateCoffe.jsx";
 import Detail from "./Detail.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./ErrorPage.jsx";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,8 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <UpdateCoffe></UpdateCoffe>,
-        loader: ({ params }) =>
-          fetch(`https://coffe-shop-backend.vercel.app/add/${params.id}`),
+        // loader: ({ params }) =>
+        //   fetch(`https://coffe-shop-backend.vercel.app/add/${params.id}`),
       },
       {
         path: "/coffee/:id",
@@ -40,8 +41,12 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}></RouterProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

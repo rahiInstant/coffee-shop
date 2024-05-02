@@ -1,3 +1,4 @@
+import axios, { Axios } from "axios";
 import { IoMdArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
@@ -21,16 +22,19 @@ const AddCoffe = () => {
       details,
       photo,
     };
-    fetch("https://coffe-shop-backend.vercel.app/add", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(coffeeInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => "");
-    form.reset();
+    axios
+      .post("https://coffe-shop-backend.vercel.app/add", coffeeInfo)
+      .then(() => form.reset());
+    // fetch("https://coffe-shop-backend.vercel.app/add", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(coffeeInfo),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => "");
+    // form.reset();
   }
   return (
     <div className="px-8 lg:px-20 ">

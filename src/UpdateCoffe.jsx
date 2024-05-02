@@ -1,9 +1,36 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { IoMdArrowBack } from "react-icons/io";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import swal from "sweetalert";
 
 const UpdateCoffe = () => {
-  const data = useLoaderData();
+  // const [data, setData] = useState([]);
+  const param = useParams();
+  // useEffect(() => {
+  //     axios
+  //   .get(`https://coffe-shop-backend.vercel.app/add/${param.id}`)
+  //   .then((item) => setData(item.data));
+  // },[param])
+  // const data ={}
+  const { data, isPending } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      // const res = await axios.get(`https://coffe-shop-backend.vercel.app/add/${param.id}`)
+      const res = await fetch(
+        `https://coffe-shop-backend.vercel.app/add/${param.id}`
+      );
+      return res.json();
+    },
+  });
+
+  console.log(data);
+  console.log(isPending);
+  if (isPending) {
+    return <span className="loading loading-spinner loading-lg "></span>;
+  }
+
   function handleUpdateProduct(e) {
     e.preventDefault();
     const form = e.target;
@@ -23,15 +50,18 @@ const UpdateCoffe = () => {
       details,
       photo,
     };
-    fetch(`https://coffe-shop-backend.vercel.app/add/${data._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(coffeeInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => "");
+    axios
+      .put(`https://coffe-shop-backend.vercel.app/add/${data._id}`, coffeeInfo)
+      .then(() => "");
+    // fetch(`https://coffe-shop-backend.vercel.app/add/${data._id}`, {
+    //   method: "PUT",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(coffeeInfo),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => "");
   }
   return (
     <div className="px-8 lg:px-20 ">

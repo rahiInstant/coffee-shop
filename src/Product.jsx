@@ -4,8 +4,20 @@ import { ImBin2 } from "react-icons/im";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import swal from "sweetalert";
-
-const Product = ({ data, setData }) => {
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+const Product = () => {
+  const { data, isPending } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      const response = await axios("https://coffe-shop-backend.vercel.app/add");
+      return response.data;
+    },
+  });
+console.log(isPending)
+if(isPending) {
+  return <span className="loading loading-spinner loading-lg "></span>
+} 
   function handleDelete(id) {
     swal({
       text: "Are you want to delete this product?",
@@ -16,15 +28,19 @@ const Product = ({ data, setData }) => {
       icon: "warning",
       dangerMode: true,
     })
-      .then(() => {
-        return fetch(`https://coffe-shop-backend.vercel.app/add/${id}`, {
-          method: "DELETE",
-        });
+      .then((Delete) => {
+        if (Delete) {
+          return fetch(`https://coffe-shop-backend.vercel.app/add/${id}`, {
+            method: "DELETE",
+          });
+        } else {
+          return new Promise((res, rej) => "");
+        }
       })
       .then((res) => res.json())
       .then((id) => {
         const Actual = data.filter((item) => item._id !== id._id);
-        setData(Actual);
+        // setData(Actual);
         swal("Product Deleted", "Product deleted successfully.", "success");
       })
       .catch(() =>
@@ -38,10 +54,11 @@ const Product = ({ data, setData }) => {
 
   return (
     <div className="py-20 relative">
+{/* <span className="loading loading-spinner loading-lg"></span> */}
       {/* section header */}
       <div className="flex flex-col items-center">
         <h1 className="text-xl text-center">--- Sip & Savor ---</h1>
-        <h1 className="text-[#331A15] text-[55px] font-Rancho mt-2 text-center">
+        <h1 className="text-[#331A15] text-[40px] lg:text-[55px] font-Rancho mt-2 text-center">
           Our Popular Products
         </h1>
         <Link to="/add">
@@ -52,12 +69,12 @@ const Product = ({ data, setData }) => {
         </Link>
       </div>
 
-      <div className="absolute top-44 lg:top-24 left-0 hidden lg:block">
+      {/* <div className="absolute top-44 lg:top-24 left-0 hidden lg:block">
         <img src="/images/more/4.png" alt="" />
       </div>
       <div className="absolute bottom-0 right-0 ">
         <img src="/images/more/5.png" alt="" />
-      </div>
+      </div> */}
 
       {/* card */}
       <div className="flex justify-center ">
@@ -150,9 +167,9 @@ const Product = ({ data, setData }) => {
   );
 };
 
-Product.propTypes = {
-  data: PropTypes.array.isRequired,
-  setData: PropTypes.func.isRequired,
-};
+// Product.propTypes = {
+//   data: PropTypes.array.isRequired,
+//   setData: PropTypes.func.isRequired,
+// };
 
 export default Product;
